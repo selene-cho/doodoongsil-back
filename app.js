@@ -4,16 +4,18 @@ const express = require('express');
 const cors = require('cors');
 
 const connectMongoDB = require('./db');
+const cookieParser = require('cookie-parser');
 const HttpError = require('./error/httpError');
 const ERRORS = require('./error/errorMessages');
 
 const authRouter = require('./routes/authRoutes');
-const usersRouter = require('./routes/userRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
 connectMongoDB();
 
+app.use(cookieParser());
 app.use(
   cors({
     origin: 'http://localhost:3000',
@@ -25,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/user', userRouter);
 
 app.use((req, res, next) => {
   next(new HttpError(404, ERRORS.NOT_FOUND));
