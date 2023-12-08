@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   kakaoId: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
   },

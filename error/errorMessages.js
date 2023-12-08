@@ -6,6 +6,7 @@ module.exports = {
   AUTH: {
     UNAUTHORIZED: '접근 권한이 없습니다.',
     INVALID_TOKEN: '다시 로그인해주세요',
+    USER_NOT_FOUND: '유저를 찾을 수 없습니다',
   },
   DIARY: {
     INVALID_FILE_TYPE: '유효하지 않은 확장자명입니다.',
